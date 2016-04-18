@@ -1,4 +1,12 @@
 @import url(fonts.less);
+@import url(icons.less);
+
+/* Styling Notes
+
+container width on designs is ~1122px;
+
+*/
+
 // Mixins
 .boxshadow ( @input ) {
     -webkit-box-shadow: @input;
@@ -6,13 +14,32 @@
     box-shadow: @input;
 }
 
+.vcenter-fix {
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+}
+
+.transform(@content) {
+    -webkit-transform: @content;
+      -moz-transform: @content;
+      -ms-transform: @content;
+      -o-transform: @content;
+      transform: @content;
+}
+
 @mainfont: 'Walsheim',
 'Arial',
 sans-serif;
-
-@gold: #C1A15D;
-
-
+@gold-line: #C1A15D;
+@gold-text: #C2A258;
+@blue: #00397A;
+@blue-link: #00377C;
+@tan: #F7F1E4;
+@tan-text: #DFCEA9;
+@angle: 25deg;
 // Mixins End
 html,
 body {
@@ -26,13 +53,14 @@ body {
 }
 
 * {
-    //outline: 1px solid red;
+    outline: 1px solid red;
 }
 
 section {
     font-family: @mainfont;
     min-height: 500px;
-    background: whitesmoke;
+    background: white;
+    position: relative;
     &.fullscreen {
         margin: 0;
         width: 100%;
@@ -118,32 +146,61 @@ section {
     background: transparent;
 }
 
+.main-section {
+    h1 {
+        color: @gold-text;
+        font-size: 36px;
+        line-height: 48px;
+        margin: 0;
+    }
+    .button {
+        background: transparent;
+        border: 1px solid;
+        font-size: 14px;
+        line-height: 24px;
+        padding: 18px 0 15px 0;
+        width: 220px;
+        text-align: center;
+    }
+    .gold-button {
+        .button;
+        color: @gold-text;
+        border-color: @gold-line;
+    }
+    .white-button {
+        .button;
+        color: white;
+    }
+}
+
 .tiles-section {
     padding-top: 93px;
-    @angle: 25deg;
     .tiles-section__row-1 {
         .tiles-section__image-wrapper {
             .slanted-image-outer {
-                transform: skewX(-@angle);
+                .transform( skewX(-@angle) );
                 .slanted-image-inner {
-                    transform: skewX(@angle);
+                    .transform(skewX(@angle));
                 }
             }
+            // This is for the slanted line 
             &:after {
-                transform: rotate(@angle);
+                .transform(skewX(-@angle));
             }
         }
     }
     .tiles-section__row-2 {
+        margin-top: 20px;
         .tiles-section__image-wrapper {
             .slanted-image-outer {
-                transform: skewX(@angle);
+                .transform(skewX(@angle));
                 .slanted-image-inner {
-                    transform: skewX(-@angle);
+                    .transform(skewX(-@angle));
                 }
             }
+            // This is for the slanted line 
             &:after {
-                transform: rotate(-@angle);
+                .transform(skewX(@angle));
             }
         }
     }
@@ -169,20 +226,19 @@ section {
             font-size: 24px;
             text-align: center;
             position: relative;
-            top: 50%;
-                transform: translateY(-50%);
-                -webkit-transform: translateY(-50%);
-                -moz-transform: translateY(-50%);
-                -o-transform: translateY(-50%);
+            .vcenter-fix;
         }
     }
     .tiles-section__image-wrapper {
-        width: 49%;
+        width: 50%;
         display: inline-block;
-        color: @gold;
+        color: @gold-text;
+        margin-left: -0.5px;
+        position: relative;
+        z-index: 2;
         &:after {
             content: "";
-            border-left: 2px solid;
+            border-left: 1px solid;
             height: 175%;
             position: absolute;
         }
@@ -208,7 +264,7 @@ section {
         }
         &:after {
             top: -30%;
-            left: 0;
+            left: -2.6%;
         }
     }
     .slanted-image-2 {
@@ -221,7 +277,7 @@ section {
         }
         &:after {
             top: -30%;
-            left: 47.7%;
+            left: -2.7%;
         }
     }
     .slanted-image-3 {
@@ -233,8 +289,8 @@ section {
             }
         }
         &:after {
-            bottom: -7%;
-            left: -3.6%;
+            bottom: 0;
+            left: -12.5%;
         }
     }
     .slanted-image-4 {
@@ -246,11 +302,195 @@ section {
             }
         }
         &:after {
-            top: -8%;
-            left: 53.9%;
-            border-right: 2px solid;
+            top: 0.4%;
+            left: 12.3%;
+            border-right: 1px solid;
+            width: 100.1%;
+        }
+    }
+}
+
+.slanted-line {
+    /* Line Copy 18: */
+    border-left: 1px solid @gold-line;
+    .transform(skewX(-@angle));
+    height: 723px;
+    position: absolute;
+    z-index: 1;
+}
+
+.slanted-line-1 {
+    .slanted-line;
+    bottom: -550px;
+    left: 50%;
+}
+
+.welcome-section {
+    background-image: url('../images/front-exterior.png');
+    background-position: top left;
+    background-size: contain;
+    background-repeat: no-repeat;
+    .welcome-section__text-box {
+        text-align: center;
+        padding-top: 244px;
+        padding-bottom: 244px;
+    }
+}
+
+.new-development-section {
+    .new-development-section__container {
+        position: relative;
+        .section-title {
+            padding-top: 78px;
+        }
+        &:before {
+            content: "";
+            background: @blue;
+            width: 57%;
+            height: 1500px;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+    }
+    .new-development-section__main-content {
+        .arrow {
+            content: "";
+            background: url('../images/arrow-right.svg');
+            position: absolute;
+            top: ~"calc(50% - 3.5px)";
+            height: 9px;
+            width: 45px;
+        }
+        @distance: -60px;
+        &:before {
+            // Left arrow
+            .arrow;
+            left: @distance;
+        }
+        &:after {
+            // Right arrow
+            .arrow;
+            right: @distance;
+            .transform(rotate(180deg));
+        }
+    }
+    .new-development-section__text-box {
+        padding-top: 92px;
+        padding-bottom: 244px;
+        color: white;
+        .text-box__copy {
+            font-size: 16px;
+            line-height: 30px;
+        }
+    }
+    .new-development-section__image-gallery {
+        .image-gallery__image-wrapper--inner {
+            background-image: url('../images/new-developments-image-1.jpg');
+            background-size: cover;
+            background-position: top center;
             width: 100%;
-            transform: skew(@angle);
+            height: 423px;
+        }
+        .image-gallery__pagination ul {
+            float: right;
+            list-style: none;
+            color: white;
+            li {
+                display: inline-block;
+                &.active {
+                    color: @gold-text;
+                }
+            }
+        }
+    }
+}
+
+.social-media-section {
+    .social-media-section__row {
+        .transform(skewX(-@angle));
+    }
+    .unskew {
+        .transform(skewX(@angle));
+    }
+    .vpv-icon {
+        height: 34px;
+        width: 34px;
+        display: block;
+        position: absolute;
+        bottom: 20px;
+        left: 34px;
+        .unskew;
+    }
+    .social-media-section__image-box--outer{
+        padding: 5px;
+        margin-right: 10px;
+        overflow: hidden;
+    }
+    .image-box--inner {
+        height: 306px;
+        width: 130%;
+        margin-left: -15%;
+        background-size: cover;
+
+        .image-box__text {
+            h1 {
+                font-size: 24px;
+                color: @tan-text;
+                line-height: 36px;
+            }
+            padding-top: 170px;
+            padding-left: 20%;
+            color: white;
+            font-size: 16px;
+            line-height: 24px;
+            width: 75%;
+        }
+    }
+    .social-media-section__text-box--outer {
+        padding: 5px;
+        .text-box--inner {
+            background: @tan;
+            padding-top: 29px;
+            padding-bottom: 34px;
+            height: 232px;
+            width: 100%;
+
+            .text-box__text {
+                .unskew;
+                width: 160%;
+            }
+
+            /* Define two variables as the loop limits */
+            @from : 0;
+            @to : 4;
+            @start : 60;
+
+            /* Create a Parametric mixin and add a guard operation */
+            .loop(@index) when(@index =< @to) {
+
+              /* As the mixin is called CSS is outputted */
+              p:nth-of-type(@{index}) {
+                text-indent: unit(@start - (@index * 15), px);
+              }
+
+              /* Interation call and operation */
+              .loop(@index + 1);
+            }
+
+            /* the mixin is called, css outputted and iterations called */
+            .loop(@from);
+        }
+    }
+    .social-media-section__left-col {
+        .image-box--inner {
+            background-image: url('../images/develop-color-2.jpg');
+            .unskew;
+        }
+    }
+    .social-media-right-col {
+        .image-box--inner {
+            background-image: url('../images/OU-Exterior-Night_Header1300.jpg');
         }
     }
 }
