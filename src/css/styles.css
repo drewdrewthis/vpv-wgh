@@ -1,0 +1,344 @@
+@font-face {
+  font-family: 'Walsheim';
+  src: url('../fonts/gt-walsheim-bold-oblique-web.ttf') format('truetype');
+  font-weight: bold, 800;
+  font-style: italic, oblique;
+}
+@font-face {
+  font-family: 'Walsheim';
+  src: url('../fonts/gt-walsheim-bold.ttf') format('truetype');
+  font-weight: bold, 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Walsheim';
+  src: url('../fonts/gt-walsheim-light-oblique-web.ttf') format('truetype');
+  font-weight: 100;
+  font-style: italic, oblique;
+}
+@font-face {
+  font-family: 'Walsheim';
+  src: url('../fonts/gt-walsheim-light-web.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Walsheim';
+  src: url('../fonts/gt-walsheim-medium-oblique-web.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic, oblique;
+}
+@font-face {
+  font-family: 'Walsheim';
+  src: url('../fonts/gt-walsheim-medium-web.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Walsheim';
+  src: url('../fonts/gt-walsheim-regular-oblique-web.ttf') format('truetype');
+  font-weight: 500, normal;
+  font-style: italic, oblique;
+}
+@font-face {
+  font-family: 'Walsheim';
+  src: url('../fonts/gt-walsheim-web.ttf') format('truetype');
+  font-weight: 500, normal;
+  font-style: normal;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+html.container-fluid,
+body.container-fluid {
+  padding: 0 0 0 0;
+}
+section {
+  font-family: 'Walsheim', 'Arial', sans-serif;
+  min-height: 500px;
+  background: whitesmoke;
+}
+section.fullscreen {
+  margin: 0;
+  width: 100%;
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+}
+.navbar {
+  -webkit-box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  background: white;
+  width: 100%;
+  margin-bottom: 0;
+  border-radius: 0;
+}
+.navbar .navbar__col {
+  height: 78px;
+}
+.navbar .navbar__col .navbar__colwrapper {
+  width: 100%;
+}
+.navbar.topfix {
+  position: fixed;
+  top: 0;
+}
+.navbar .navbar-brand {
+  padding: 0 0;
+  float: none;
+}
+.navbar .nav-text {
+  text-align: center;
+}
+.navbar .dropdown-toggle {
+  font-size: 30px;
+  float: right;
+}
+.navbar .dropdown-toggle .glyphicon {
+  vertical-align: middle;
+}
+.navbar .navbar-toggle {
+  display: block;
+  border: none;
+  padding: 21px 0;
+  margin: 0;
+}
+.navbar .navbar-toggle .icon-bar {
+  height: 3px;
+  width: 22px;
+  background: #00397A;
+  box-shadow: 0px 2px 30px 0px rgba(0, 0, 0, 0.3);
+}
+.intro-section {
+  background-image: url(../images/header-image.jpg);
+  color: white;
+  position: fixed;
+  z-index: -1;
+}
+.intro-section .lead-in {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 131px;
+}
+.intro-section .lead-in .title {
+  font-weight: 600;
+  line-height: 84px;
+  font-size: 60px;
+  margin: 0;
+  text-shadow: 0px 2px 24px rgba(0, 0, 0, 0.3);
+}
+.intro-section .lead-in .subtitle {
+  font-weight: 100;
+  font-size: 24px;
+  line-height: 30px;
+  text-shadow: 0px 2px 24px rgba(0, 0, 0, 0.3);
+  padding-bottom: 46px;
+  margin: 0;
+}
+#section-1 {
+  background: transparent;
+}
+.tiles-section {
+  padding-top: 93px;
+}
+.tiles-section .tiles-section__row-1 .tiles-section__image-wrapper .slanted-image-outer {
+  transform: skewX(-25deg);
+}
+.tiles-section .tiles-section__row-1 .tiles-section__image-wrapper .slanted-image-outer .slanted-image-inner {
+  transform: skewX(25deg);
+}
+.tiles-section .tiles-section__row-1 .tiles-section__image-wrapper:after {
+  transform: rotate(25deg);
+}
+.tiles-section .tiles-section__row-2 .tiles-section__image-wrapper .slanted-image-outer {
+  transform: skewX(25deg);
+}
+.tiles-section .tiles-section__row-2 .tiles-section__image-wrapper .slanted-image-outer .slanted-image-inner {
+  transform: skewX(-25deg);
+}
+.tiles-section .tiles-section__row-2 .tiles-section__image-wrapper:after {
+  transform: rotate(-25deg);
+}
+.tiles-section .slanted-image-left .slanted-image-outer {
+  padding-top: 10%;
+}
+.tiles-section .slanted-image-right {
+  margin: 0;
+}
+.tiles-section .slanted-image-right.tiles-section__image-wrapper {
+  margin-left: -0.3%;
+}
+.tiles-section .text-box--outer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.tiles-section .text-box--outer .text-box--inner {
+  font-size: 24px;
+  text-align: center;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+}
+.tiles-section .tiles-section__image-wrapper {
+  width: 49%;
+  display: inline-block;
+  color: #C1A15D;
+}
+.tiles-section .tiles-section__image-wrapper:after {
+  content: "";
+  border-left: 2px solid;
+  height: 175%;
+  position: absolute;
+}
+.tiles-section .tiles-section__image-wrapper .slanted-image-outer {
+  height: 400px;
+  overflow: hidden;
+}
+.tiles-section .tiles-section__image-wrapper .slanted-image-outer .slanted-image-inner {
+  height: 350px;
+  background-size: cover;
+  margin-left: -15%;
+  width: 130%;
+}
+.tiles-section .slanted-image-1 {
+  width: 49%;
+  display: inline-block;
+  color: #C1A15D;
+}
+.tiles-section .slanted-image-1:after {
+  content: "";
+  border-left: 2px solid;
+  height: 175%;
+  position: absolute;
+}
+.tiles-section .slanted-image-1 .slanted-image-outer {
+  height: 400px;
+  overflow: hidden;
+}
+.tiles-section .slanted-image-1 .slanted-image-outer .slanted-image-inner {
+  height: 350px;
+  background-size: cover;
+  margin-left: -15%;
+  width: 130%;
+}
+.tiles-section .slanted-image-1 .slanted-image-inner {
+  background-image: url('../images/bw-room.jpg');
+}
+.tiles-section .slanted-image-1 .slanted-image-inner:hover {
+  background-image: url('../images/bw-room.jpg');
+}
+.tiles-section .slanted-image-1:after {
+  top: -30%;
+  left: 0;
+}
+.tiles-section .slanted-image-2 {
+  width: 49%;
+  display: inline-block;
+  color: #C1A15D;
+}
+.tiles-section .slanted-image-2:after {
+  content: "";
+  border-left: 2px solid;
+  height: 175%;
+  position: absolute;
+}
+.tiles-section .slanted-image-2 .slanted-image-outer {
+  height: 400px;
+  overflow: hidden;
+}
+.tiles-section .slanted-image-2 .slanted-image-outer .slanted-image-inner {
+  height: 350px;
+  background-size: cover;
+  margin-left: -15%;
+  width: 130%;
+}
+.tiles-section .slanted-image-2 .slanted-image-inner {
+  background-image: url('../images/develop-bw.jpg');
+}
+.tiles-section .slanted-image-2 .slanted-image-inner:hover {
+  background-image: url('../images/develop-color.jpg');
+}
+.tiles-section .slanted-image-2:after {
+  top: -30%;
+  left: 47.7%;
+}
+.tiles-section .slanted-image-3 {
+  width: 49%;
+  display: inline-block;
+  color: #C1A15D;
+}
+.tiles-section .slanted-image-3:after {
+  content: "";
+  border-left: 2px solid;
+  height: 175%;
+  position: absolute;
+}
+.tiles-section .slanted-image-3 .slanted-image-outer {
+  height: 400px;
+  overflow: hidden;
+}
+.tiles-section .slanted-image-3 .slanted-image-outer .slanted-image-inner {
+  height: 350px;
+  background-size: cover;
+  margin-left: -15%;
+  width: 130%;
+}
+.tiles-section .slanted-image-3 .slanted-image-inner {
+  background-image: url('../images/hotel-bw.jpg');
+}
+.tiles-section .slanted-image-3 .slanted-image-inner:hover {
+  background-image: url('../images/hotel.jpg');
+}
+.tiles-section .slanted-image-3:after {
+  bottom: -7%;
+  left: -3.6%;
+}
+.tiles-section .slanted-image-4 {
+  width: 49%;
+  display: inline-block;
+  color: #C1A15D;
+}
+.tiles-section .slanted-image-4:after {
+  content: "";
+  border-left: 2px solid;
+  height: 175%;
+  position: absolute;
+}
+.tiles-section .slanted-image-4 .slanted-image-outer {
+  height: 400px;
+  overflow: hidden;
+}
+.tiles-section .slanted-image-4 .slanted-image-outer .slanted-image-inner {
+  height: 350px;
+  background-size: cover;
+  margin-left: -15%;
+  width: 130%;
+}
+.tiles-section .slanted-image-4 .slanted-image-inner {
+  background-image: url('../images/R_Indy_Lobby-bw.jpg');
+}
+.tiles-section .slanted-image-4 .slanted-image-inner:hover {
+  background-image: url('../images/R_Indy_Lobby.jpg');
+}
+.tiles-section .slanted-image-4:after {
+  top: -8%;
+  left: 53.9%;
+  border-right: 2px solid;
+  width: 100%;
+  transform: skew(25deg);
+}
+.vcenter {
+  display: inline-block;
+  vertical-align: middle;
+  float: none;
+}
