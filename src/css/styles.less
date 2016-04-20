@@ -154,6 +154,7 @@ section {
 .tiles-section {
     padding-top: 93px;
     overflow: hidden;
+    color: @gold;
     .tiles-section__wrapper {
         width: 0;
         margin: auto;
@@ -204,23 +205,22 @@ section {
         }
     }
     .text-box--outer {
-        //display: table;
         width: 100%;
         height: 100%;
         position: relative;
         .text-box--inner {
-            //display: table-cell;
-            //vertical-align: middle;
-            font-size: 24px;
             text-align: center;
             position: relative;
+            color: @gold;
+            font-size: 36px;
+            line-height: 42px;
+            font-weight: 100;
             .vcenter;
         }
     }
     .tiles-section__image-wrapper {
         width: 50%;
         display: inline-block;
-        color: @gold-text;
         margin-left: -2px;
         position: relative;
         z-index: 2;
@@ -232,7 +232,6 @@ section {
         }
         .slanted-image-outer {
             height: 400px;
-            //background-color: grey;
             overflow: hidden;
             .slanted-image-inner {
                 height: 350px;
