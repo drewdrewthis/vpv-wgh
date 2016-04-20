@@ -1,0 +1,31 @@
+@mixin icon-attr {
+    background-size: contain;
+    background-position: top center;
+    background-repeat: no-repeat;
+    display: block;
+}
+
+.twitter-icon {
+    background: url('../images/twitter.svg');
+    @include icon-attr;
+}
+
+.twitter-big-icon {
+    background: url('../images/twitter-big.svg');
+    @include icon-attr;
+}
+
+.linkedin-icon {
+    background: url('../images/linkedin.svg');
+    @include icon-attr;
+}
+
+.linkedin-big-icon {
+    background: url('../images/linkedin-big.svg');
+    @include icon-attr;
+}
+
+.facebook-big-icon {
+    background: url('../images/facebook-big.svg');
+    @include icon-attr;
+}

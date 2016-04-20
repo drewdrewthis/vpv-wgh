@@ -1,0 +1,611 @@
+@import 'mixins';
+@import 'branding';
+@import 'icons';
+
+/* Styling Notes
+
+container width on designs is ~1122px;
+
+*/
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    &.container-fluid {
+        padding: 0 0 0 0;
+    }
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+    //outline: 1px solid red;
+}
+
+section {
+    background: white;
+    position: relative;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    overflow: hidden;
+    &.fullscreen {
+        margin: 0;
+        width: 100%;
+        background-size: cover;
+        background-position: top center;
+        background-repeat: no-repeat;
+    }
+}
+
+.row {
+    // ATTN: This is a fix that should be readdressed:
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.navbar {
+    @include boxshadow(0px 10px 20px 0px rgba(0, 0, 0, 0.1));
+    z-index: 10;
+    background: white;
+    width: 100%;
+    margin-bottom: 0;
+    border-radius: 0;
+    height: 78px;
+    .container {
+        @include vcenter;
+    }
+    .navbar-toggle__col {
+        transform: translateY(40%); //Vertical align hack
+        height: 100%;
+        position: relative;
+    }
+    &.topfix {
+        position: fixed;
+        top: 0;
+    }
+    .navbar-brand {
+        padding: 0;
+        height: auto;
+    }
+    .nav-text {
+        text-align: center;
+    }
+    .dropdown-toggle {
+        font-size: 30px;
+        float: right;
+        .glyphicon {
+            vertical-align: middle;
+        }
+    }
+    .navbar-toggle {
+        display: block;
+        border: none;
+        padding: 0 0;
+        margin: 0;
+        .icon-bar {
+            height: 3px;
+            width: 22px;
+            background: #00397A;
+            box-shadow: 0px 2px 30px 0px rgba(0, 0, 0, 0.30);
+        }
+    }
+}
+
+.intro-section {
+    background-image: url(../images/header-image.jpg);
+    color: white;
+    position: fixed;
+    z-index: -1;
+    .lead-in {
+        position: absolute;
+        bottom: 0;
+        margin-bottom: 131px;
+        .title {
+            line-height: 84px;
+            font-size: 60px;
+            margin: 0;
+            text-shadow: 0px 2px 24px rgba(0, 0, 0, 0.30);
+            color: white;
+        }
+        .subtitle {
+            font-weight: 100;
+            font-size: 24px;
+            line-height: 30px;
+            text-shadow: 0px 2px 24px rgba(0, 0, 0, 0.30);
+            color: white;
+            padding-bottom: 46px;
+            margin: 0;
+        }
+    }
+}
+
+#section-1 {
+    background: transparent;
+}
+
+.main-section {
+    h1 {
+        color: $gold-text;
+        font-size: 36px;
+        line-height: 48px;
+        margin: 0;
+    }
+    .button {
+        background: transparent;
+        border: 1px solid;
+        font-size: 14px;
+        line-height: 24px;
+        padding: 18px 0 15px 0;
+        width: 220px;
+        text-align: center;
+    }
+    .gold-button {
+        @extend .button;
+        color: $gold-text;
+        border-color: $gold-line;
+    }
+    .white-button {
+        @extend .button;
+        color: white;
+    }
+}
+
+.tiles-section {
+    padding-top: 93px;
+    overflow: hidden;
+    color: $gold;
+    .tiles-section__wrapper {
+        width: 0;
+        margin: auto;
+    }
+    .tiles-section__container {
+        width: 1122px;
+        left: -561px;
+        position: relative;
+    }
+    .tiles-section__row-1 {
+        .tiles-section__image-wrapper {
+            .slanted-image-outer {
+                @include transform( skewX(-$angle));
+                .slanted-image-inner {
+                    @include transform(skewX($angle));
+                }
+            }
+            // This is for the slanted line 
+            &:after {
+                @include transform(skewX(-$angle));
+            }
+        }
+    }
+    .tiles-section__row-2 {
+        margin-top: 20px;
+        .tiles-section__image-wrapper {
+            .slanted-image-outer {
+                @include transform(skewX($angle));
+                .slanted-image-inner {
+                    @include transform(skewX(-$angle));
+                }
+            }
+            // This is for the slanted line 
+            &:after {
+                @include transform(skewX($angle));
+            }
+        }
+    }
+    .slanted-image-left {
+        .slanted-image-outer {
+            padding-top: 10%;
+        }
+    }
+    .slanted-image-right {
+        margin: 0;
+        &.tiles-section__image-wrapper {
+            margin-left: -0.3%;
+        }
+    }
+    .text-box--outer {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        .text-box--inner {
+            text-align: center;
+            position: relative;
+            color: $gold;
+            font-size: 36px;
+            line-height: 42px;
+            font-weight: 100;
+            @include vcenter;
+        }
+    }
+    .tiles-section__image-wrapper {
+        width: 50%;
+        display: inline-block;
+        margin-left: -2px;
+        position: relative;
+        z-index: 2;
+        &:after {
+            content: "";
+            border-left: 1px solid;
+            height: 175%;
+            position: absolute;
+        }
+        .slanted-image-outer {
+            height: 400px;
+            overflow: hidden;
+            .slanted-image-inner {
+                height: 350px;
+                background-size: cover;
+                margin-left: -15%;
+                width: 130%;
+            }
+        }
+    }
+    .slanted-image-1 {
+        @extend .tiles-section__image-wrapper;
+        .slanted-image-inner {
+            background-image: url('../images/bw-room.jpg');
+            &:hover {
+                //background-image: url('../images/bw-room.jpg');
+            }
+        }
+        &:after {
+            top: -30%;
+            left: -2.6%;
+        }
+    }
+    .slanted-image-2 {
+        @extend .tiles-section__image-wrapper;
+        .slanted-image-inner {
+            background-image: url('../images/develop-bw.jpg');
+            &:hover {
+                //background-image: url('../images/develop-color.jpg');
+            }
+        }
+        &:after {
+            top: -30%;
+            left: -2.7%;
+        }
+    }
+    .slanted-image-3 {
+        @extend .tiles-section__image-wrapper;
+        .slanted-image-inner {
+            background-image: url('../images/hotel-bw.jpg');
+            &:hover {
+                //background-image: url('../images/hotel.jpg');
+            }
+        }
+        &:after {
+            bottom: 0;
+            left: -12.5%;
+        }
+    }
+    .slanted-image-4 {
+        @extend .tiles-section__image-wrapper;
+        .slanted-image-inner {
+            background-image: url('../images/R_Indy_Lobby-bw.jpg');
+            &:hover {
+                //background-image: url('../images/R_Indy_Lobby.jpg');
+            }
+        }
+        &:after {
+            top: 0.4%;
+            left: 12.3%;
+            border-right: 1px solid;
+            width: 100.1%;
+        }
+    }
+}
+
+.slanted-line {
+    /* Line Copy 18: */
+    border-left: 1px solid $gold-line;
+    @include transform(skewX(-$angle));
+    height: 723px;
+    position: absolute;
+    z-index: 1;
+}
+
+.slanted-line-1 {
+    @extend .slanted-line;
+    bottom: -550px;
+    left: 50%;
+}
+
+.welcome-section {
+    background-image: url('../images/front-exterior.png');
+    background-position: -340px center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    @media #{$sm} {
+        background-position: -170px center;
+    }
+    @media #{$md} {
+        background-position: -80px center;
+    }
+    @media #{$lg} {
+        background-position: left center;
+    }
+    .welcome-section__text-box {
+        text-align: center;
+        padding-top: 244px;
+        padding-bottom: 244px;
+        .text-box__copy {
+            text-align: left;
+            @media #{$sm} {
+                text-align: center;
+            }
+        }
+    }
+}
+
+.new-development-section {
+    .new-development-section__container {
+        position: relative;
+        .section-title {
+            padding-top: 78px;
+        }
+        &:before {
+            content: "";
+            background: $blue;
+            position: absolute;
+            right: 0;
+            width: 100%;
+            height: 1500px;
+            top: 25%;
+            @media #{$md} {
+                top: 0;
+                width: 57%;
+            }
+        }
+    }
+    .new-development-section__main-content {
+        @mixin arrow {
+            content: "";
+            background: url('../images/arrow-right.svg');
+            position: absolute;
+            
+            height: 9px;
+            width: 45px;
+            @media #{$md} {
+                top: unquote("calc(50% - 3.5px)");
+            }
+        }
+        $distance: -60px;
+        &:before {
+            // Left arrow
+            @include arrow;
+            bottom: 0;
+            left: 60px;
+
+            @media #{$md} {
+                left: $distance;
+            }  
+            
+
+        }
+        &:after {
+            // Right arrow
+            @include arrow;
+            @include transform(rotate(180deg));
+            bottom: 0;
+            right: 60px;
+
+            @media #{$md} {
+                right: $distance;
+            }
+        }
+    }
+    .new-development-section__text-box {
+        padding-top: 92px;
+        color: white;
+        text-align: center;
+        @media #{$md} {
+            text-align: left;
+            padding-bottom: 244px;
+        }
+        .text-box__copy {
+            font-size: 16px;
+            line-height: 30px;
+            color: white;
+        }
+    }
+    .new-development-section__image-gallery {
+        .image-gallery__image-wrapper--inner {
+            background-image: url('../images/new-developments-image-1.jpg');
+            background-size: cover;
+            background-position: top center;
+            width: 100%;
+            height: 423px;
+        }
+        .image-gallery__pagination ul {
+            float: right;
+            list-style: none;
+            color: white;
+            li {
+                display: inline-block;
+                &.active {
+                    color: $gold-text;
+                }
+            }
+        }
+    }
+}
+
+.social-media-section {
+    .social-media-section__row {
+        width: unquote("calc( 100% - 100px )");
+        margin-left: 50px;
+    }
+    .social-media-section__col {
+        padding: 0 5px;
+        @media #{$sm} {
+            @include transform($skew);
+        }
+        .image-box--inner {
+            @media #{$sm} {
+                @include transform($unskew);
+            }
+        }
+    }
+    .vpv-icon {
+        height: 34px;
+        width: 34px;
+        display: block;
+        position: absolute;
+        bottom: 20px;
+        left: 34px;
+        @media #{$sm} {
+            @include transform($unskew);
+        }
+    }
+    .social-media-section__image-box--outer {
+        padding: 5px;
+        margin-right: 10px;
+        overflow: hidden;
+    }
+    .image-box--inner {
+        height: 306px;
+        width: 140%;
+        margin-left: -20%;
+        background-size: cover;
+        .image-box__text {
+            h1 {
+                font-size: 24px;
+                color: $tan-text;
+                line-height: 36px;
+            }
+            padding-top: 170px;
+            padding-left: 20%;
+            .text-box__copy {
+                color: white;
+                font-size: 16px;
+                line-height: 24px;
+                width: 75%;
+            }
+        }
+    }
+    .social-media-section__text-box--outer {
+        padding: 5px;
+        .text-box--inner {
+            background: $tan;
+            padding-top: 29px;
+            padding-bottom: 34px;
+            height: 232px;
+            width: 100%;
+            .text-box__text {
+                p {
+                    font-size: 14px;
+                    color: $grey;
+                    line-height: 24px;
+                }
+                @include transform($unskew);
+                @media #{$sm} {
+                    @for $i from 1 through 4 {
+                        p .line[index = "#{$i}"] {
+                            text-indent: 60px - ($i * 15px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .social-media-section__left-col {
+        .image-box--inner {
+            background-image: url('../images/develop-color-2.jpg');
+        }
+    }
+    .social-media-section__right-col {
+        .image-box--inner {
+            background-image: url('../images/OU-Exterior-Night_Header1300.jpg');
+        }
+    }
+}
+
+.newsletter-section {
+    .container-fluid {
+        background: $tan;
+        color: $mid-grey;
+    }
+    .title {
+        font-size: 24px;
+        color: $mid-grey;
+    }
+    .subtitle {
+        font-size: 16px;
+        line-height: 24px;
+        color: $mid-grey;
+    }
+    .slanted-form {
+        margin-top: -50px;
+    }
+    .slanted-form--wrapper {
+        background: $blue;
+        @include transform(skewX(-$angle) translateY(50%));
+        margin-left: 45px;
+        width: unquote("calc(100% - 45px)"); //The pixel amount needs to match the margin-left prop
+        padding: 28px 106px 28px 119px;
+        .slanted-form__element {
+            display: inline-block;
+            padding: 10px;
+            input {
+                width: 100%;
+                @include transform(skewx($angle));
+                padding: 0;
+                background: transparent;
+                border: none;
+                line-height: 24px;
+                font-size: 14px;
+            }
+        }
+        .text-input--wrapper {
+            width: 80%;
+            background: white;
+            padding-left: 12px;
+        }
+        .submit--wrapper {
+            width: 20%;
+            background: $gold-line;
+            margin-left: -5px;
+            input {
+                color: white;
+            }
+        }
+    }
+}
+
+.footer {
+    text-align: center;
+    color: #606060;
+    font-size: 14px;
+    line-height: 18px;
+    padding-top: 96px;
+    padding-bottom: 50px;
+    a {
+        color: #606060;
+        text-decoration: underline;
+        &.social-link {
+            margin: 0 15px;
+            display: inline-block;
+            &:first-of-type {
+                margin-left: 0;
+            }
+            &:last-of-type {
+                margin-right: 0;
+            }
+            .vpv-icon {
+                width: 26.46px;
+                height: 26.62px;
+            }
+        }
+    }
+    .footer__affiliate-info,
+    a {
+        color: #989898;
+    }
+    .copyright,
+    a {
+        font-size: 12px;
+        color: #BABABA;
+    }
+}
