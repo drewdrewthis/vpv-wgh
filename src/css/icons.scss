@@ -29,3 +29,8 @@
     background: url('../images/facebook-big.svg');
     @include icon-attr;
 }
+
+.hamburger-icon {
+    background: url('../images/hamburger.svg');
+    @include icon-attr;
+}
