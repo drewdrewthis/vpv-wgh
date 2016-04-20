@@ -847,9 +847,6 @@ section.fullscreen {
   height: 232px;
   width: 100%;
 }
-.social-media-section .social-media-section__text-box--outer .text-box--inner .text-box__text {
-  width: 160%;
-}
 .social-media-section .social-media-section__text-box--outer .text-box--inner .text-box__text p {
   font-size: 14px;
   color: #898989;
@@ -875,21 +872,51 @@ section.fullscreen {
     /* Interation call and operation */
     /* As the mixin is called CSS is outputted */
     /* Interation call and operation */
+    /* As the mixin is called CSS is outputted */
+    /* Interation call and operation */
+    /* As the mixin is called CSS is outputted */
+    /* Interation call and operation */
+    /* As the mixin is called CSS is outputted */
+    /* Interation call and operation */
+    /* As the mixin is called CSS is outputted */
+    /* Interation call and operation */
+    /* As the mixin is called CSS is outputted */
+    /* Interation call and operation */
+    /* As the mixin is called CSS is outputted */
+    /* Interation call and operation */
   }
-  .social-media-section .social-media-section__text-box--outer .text-box--inner .text-box__text p:nth-of-type(0) {
+  .social-media-section .social-media-section__text-box--outer .text-box--inner .text-box__text p .line[index="0"] {
     text-indent: 60px;
   }
-  .social-media-section .social-media-section__text-box--outer .text-box--inner .text-box__text p:nth-of-type(1) {
+  .social-media-section .social-media-section__text-box--outer .text-box--inner .text-box__text p .line[index="1"] {
     text-indent: 45px;
   }
-  .social-media-section .social-media-section__text-box--outer .text-box--inner .text-box__text p:nth-of-type(2) {
+  .social-media-section .social-media-section__text-box--outer .text-box--inner .text-box__text p .line[index="2"] {
     text-indent: 30px;
   }
-  .social-media-section .social-media-section__text-box--outer .text-box--inner .text-box__text p:nth-of-type(3) {
+  .social-media-section .social-media-section__text-box--outer .text-box--inner .text-box__text p .line[index="3"] {
     text-indent: 15px;
   }
-  .social-media-section .social-media-section__text-box--outer .text-box--inner .text-box__text p:nth-of-type(4) {
+  .social-media-section .social-media-section__text-box--outer .text-box--inner .text-box__text p .line[index="4"] {
     text-indent: 0px;
+  }
+  .social-media-section .social-media-section__text-box--outer .text-box--inner .text-box__text p .line[index="5"] {
+    text-indent: -15px;
+  }
+  .social-media-section .social-media-section__text-box--outer .text-box--inner .text-box__text p .line[index="6"] {
+    text-indent: -30px;
+  }
+  .social-media-section .social-media-section__text-box--outer .text-box--inner .text-box__text p .line[index="7"] {
+    text-indent: -45px;
+  }
+  .social-media-section .social-media-section__text-box--outer .text-box--inner .text-box__text p .line[index="8"] {
+    text-indent: -60px;
+  }
+  .social-media-section .social-media-section__text-box--outer .text-box--inner .text-box__text p .line[index="9"] {
+    text-indent: -75px;
+  }
+  .social-media-section .social-media-section__text-box--outer .text-box--inner .text-box__text p .line[index="10"] {
+    text-indent: -90px;
   }
 }
 .social-media-section .social-media-section__left-col .image-box--inner {

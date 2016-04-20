@@ -494,7 +494,6 @@ section {
             height: 232px;
             width: 100%;
             .text-box__text {
-                width: 160%;
                 p {
                     font-size: 14px;
                     color: @grey;
@@ -504,12 +503,12 @@ section {
                     .transform(@unskew);
                     /* Define two variables as the loop limits */
                     @from : 0;
-                    @to : 4;
+                    @to : 10;
                     @start : 60;
                     /* Create a Parametric mixin and add a guard operation */
                     .loop(@index) when(@index =< @to) {
                         /* As the mixin is called CSS is outputted */
-                        p:nth-of-type(@{index}) {
+                        p .line[index="@{index}"] {
                             text-indent: unit(@start - (@index * 15), px);
                         }
                         /* Interation call and operation */
