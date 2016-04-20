@@ -1,4 +1,5 @@
-@import url(fonts.less);
+@import url(mixins.less);
+@import url(branding.less);
 @import url(icons.less);
 
 /* Styling Notes
@@ -7,40 +8,6 @@ container width on designs is ~1122px;
 
 */
 
-// Mixins
-.boxshadow ( @input ) {
-    -webkit-box-shadow: @input;
-    -moz-box-shadow: @input;
-    box-shadow: @input;
-}
-
-.vcenter-fix {
-    top: 50%;
-    transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
-}
-
-.transform(@content) {
-    -webkit-transform: @content;
-      -moz-transform: @content;
-      -ms-transform: @content;
-      -o-transform: @content;
-      transform: @content;
-}
-
-@mainfont: 'Walsheim',
-'Arial',
-sans-serif;
-@gold-line: #C1A15D;
-@gold-text: #C2A258;
-@blue: #00397A;
-@blue-link: #00377C;
-@tan: #F7F1E4;
-@tan-text: #DFCEA9;
-@angle: 25deg;
-// Mixins End
 html,
 body {
     height: 100%;
@@ -53,14 +20,15 @@ body {
 }
 
 * {
-    outline: 1px solid red;
+    //outline: 1px solid red;
 }
 
 section {
-    font-family: @mainfont;
-    min-height: 500px;
     background: white;
     position: relative;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    overflow: hidden;
     &.fullscreen {
         margin: 0;
         width: 100%;
@@ -70,6 +38,12 @@ section {
     }
 }
 
+.row {
+    // ATTN: This is a fix that should be readdressed:
+    margin-left: 0;
+    margin-right: 0;
+}
+
 .navbar {
     .boxshadow(0px 10px 20px 0px rgba(0, 0, 0, 0.1));
     z-index: 10;
@@ -77,19 +51,22 @@ section {
     width: 100%;
     margin-bottom: 0;
     border-radius: 0;
-    .navbar__col {
-        height: 78px;
-        .navbar__colwrapper {
-            width: 100%;
-        }
+    height: 78px;
+    .container {
+        .vcenter;
+    }
+    .navbar-toggle__col {
+        transform: translateY(40%); //Vertical align hack
+        height: 100%;
+        position: relative;
     }
     &.topfix {
         position: fixed;
         top: 0;
     }
     .navbar-brand {
-        padding: 0 0;
-        float: none;
+        padding: 0;
+        height: auto;
     }
     .nav-text {
         text-align: center;
@@ -104,7 +81,7 @@ section {
     .navbar-toggle {
         display: block;
         border: none;
-        padding: 21px 0;
+        padding: 0 0;
         margin: 0;
         .icon-bar {
             height: 3px;
@@ -125,17 +102,18 @@ section {
         bottom: 0;
         margin-bottom: 131px;
         .title {
-            font-weight: 600;
             line-height: 84px;
             font-size: 60px;
             margin: 0;
             text-shadow: 0px 2px 24px rgba(0, 0, 0, 0.30);
+            color: white;
         }
         .subtitle {
             font-weight: 100;
             font-size: 24px;
             line-height: 30px;
             text-shadow: 0px 2px 24px rgba(0, 0, 0, 0.30);
+            color: white;
             padding-bottom: 46px;
             margin: 0;
         }
@@ -175,10 +153,20 @@ section {
 
 .tiles-section {
     padding-top: 93px;
+    overflow: hidden;
+    .tiles-section__wrapper {
+        width: 0;
+        margin: auto;
+    }
+    .tiles-section__container {
+        width: 1122px;
+        left: -561px;
+        position: relative;
+    }
     .tiles-section__row-1 {
         .tiles-section__image-wrapper {
             .slanted-image-outer {
-                .transform( skewX(-@angle) );
+                .transform( skewX(-@angle));
                 .slanted-image-inner {
                     .transform(skewX(@angle));
                 }
@@ -226,14 +214,14 @@ section {
             font-size: 24px;
             text-align: center;
             position: relative;
-            .vcenter-fix;
+            .vcenter;
         }
     }
     .tiles-section__image-wrapper {
         width: 50%;
         display: inline-block;
         color: @gold-text;
-        margin-left: -0.5px;
+        margin-left: -2px;
         position: relative;
         z-index: 2;
         &:after {
@@ -259,7 +247,7 @@ section {
         .slanted-image-inner {
             background-image: url('../images/bw-room.jpg');
             &:hover {
-                background-image: url('../images/bw-room.jpg');
+                //background-image: url('../images/bw-room.jpg');
             }
         }
         &:after {
@@ -272,7 +260,7 @@ section {
         .slanted-image-inner {
             background-image: url('../images/develop-bw.jpg');
             &:hover {
-                background-image: url('../images/develop-color.jpg');
+                //background-image: url('../images/develop-color.jpg');
             }
         }
         &:after {
@@ -285,7 +273,7 @@ section {
         .slanted-image-inner {
             background-image: url('../images/hotel-bw.jpg');
             &:hover {
-                background-image: url('../images/hotel.jpg');
+                //background-image: url('../images/hotel.jpg');
             }
         }
         &:after {
@@ -298,7 +286,7 @@ section {
         .slanted-image-inner {
             background-image: url('../images/R_Indy_Lobby-bw.jpg');
             &:hover {
-                background-image: url('../images/R_Indy_Lobby.jpg');
+                //background-image: url('../images/R_Indy_Lobby.jpg');
             }
         }
         &:after {
@@ -327,13 +315,28 @@ section {
 
 .welcome-section {
     background-image: url('../images/front-exterior.png');
-    background-position: top left;
+    background-position: -340px center;
     background-size: contain;
     background-repeat: no-repeat;
+    @media @sm {
+        background-position: -170px center;
+    }
+    @media @md {
+        background-position: -80px center;
+    }
+    @media @lg {
+        background-position: left center;
+    }
     .welcome-section__text-box {
         text-align: center;
         padding-top: 244px;
         padding-bottom: 244px;
+        .text-box__copy {
+            text-align: left;
+            @media @sm {
+                text-align: center;
+            }
+        }
     }
 }
 
@@ -346,11 +349,15 @@ section {
         &:before {
             content: "";
             background: @blue;
-            width: 57%;
-            height: 1500px;
             position: absolute;
-            top: 0;
             right: 0;
+            width: 100%;
+            height: 1500px;
+            top: 25%;
+            @media @md {
+                top: 0;
+                width: 57%;
+            }
         }
     }
     .new-development-section__main-content {
@@ -358,30 +365,50 @@ section {
             content: "";
             background: url('../images/arrow-right.svg');
             position: absolute;
-            top: ~"calc(50% - 3.5px)";
+            
             height: 9px;
             width: 45px;
+            @media @md {
+                top: ~"calc(50% - 3.5px)";
+            }
         }
         @distance: -60px;
         &:before {
             // Left arrow
             .arrow;
-            left: @distance;
+            bottom: 0;
+            left: 60px;
+
+            @media @md {
+                left: @distance;
+            }  
+            
+
         }
         &:after {
             // Right arrow
             .arrow;
-            right: @distance;
             .transform(rotate(180deg));
+            bottom: 0;
+            right: 60px;
+
+            @media @md {
+                right: @distance;
+            }
         }
     }
     .new-development-section__text-box {
         padding-top: 92px;
-        padding-bottom: 244px;
         color: white;
+        text-align: center;
+        @media @md {
+            text-align: left;
+            padding-bottom: 244px;
+        }
         .text-box__copy {
             font-size: 16px;
             line-height: 30px;
+            color: white;
         }
     }
     .new-development-section__image-gallery {
@@ -408,10 +435,19 @@ section {
 
 .social-media-section {
     .social-media-section__row {
-        .transform(skewX(-@angle));
+        width: ~"calc( 100% - 100px )";
+        margin-left: 50px;
     }
-    .unskew {
-        .transform(skewX(@angle));
+    .social-media-section__col {
+        padding: 0 5px;
+        @media @sm {
+            .transform(@skew);
+        }
+        .image-box--inner {
+            @media @sm {
+                .transform(@unskew);
+            }
+        }
     }
     .vpv-icon {
         height: 34px;
@@ -420,19 +456,20 @@ section {
         position: absolute;
         bottom: 20px;
         left: 34px;
-        .unskew;
+        @media @sm {
+            .transform(@unskew);
+        }
     }
-    .social-media-section__image-box--outer{
+    .social-media-section__image-box--outer {
         padding: 5px;
         margin-right: 10px;
         overflow: hidden;
     }
     .image-box--inner {
         height: 306px;
-        width: 130%;
-        margin-left: -15%;
+        width: 140%;
+        margin-left: -20%;
         background-size: cover;
-
         .image-box__text {
             h1 {
                 font-size: 24px;
@@ -441,10 +478,12 @@ section {
             }
             padding-top: 170px;
             padding-left: 20%;
-            color: white;
-            font-size: 16px;
-            line-height: 24px;
-            width: 75%;
+            .text-box__copy {
+                color: white;
+                font-size: 16px;
+                line-height: 24px;
+                width: 75%;
+            }
         }
     }
     .social-media-section__text-box--outer {
@@ -455,48 +494,130 @@ section {
             padding-bottom: 34px;
             height: 232px;
             width: 100%;
-
             .text-box__text {
-                .unskew;
                 width: 160%;
+                p {
+                    font-size: 14px;
+                    color: @grey;
+                    line-height: 24px;
+                }
+                @media @sm {
+                    .transform(@unskew);
+                    /* Define two variables as the loop limits */
+                    @from : 0;
+                    @to : 4;
+                    @start : 60;
+                    /* Create a Parametric mixin and add a guard operation */
+                    .loop(@index) when(@index =< @to) {
+                        /* As the mixin is called CSS is outputted */
+                        p:nth-of-type(@{index}) {
+                            text-indent: unit(@start - (@index * 15), px);
+                        }
+                        /* Interation call and operation */
+                        .loop(@index + 1);
+                    }
+                    /* the mixin is called, css outputted and iterations called */
+                    .loop(@from);
+                }
             }
-
-            /* Define two variables as the loop limits */
-            @from : 0;
-            @to : 4;
-            @start : 60;
-
-            /* Create a Parametric mixin and add a guard operation */
-            .loop(@index) when(@index =< @to) {
-
-              /* As the mixin is called CSS is outputted */
-              p:nth-of-type(@{index}) {
-                text-indent: unit(@start - (@index * 15), px);
-              }
-
-              /* Interation call and operation */
-              .loop(@index + 1);
-            }
-
-            /* the mixin is called, css outputted and iterations called */
-            .loop(@from);
         }
     }
     .social-media-section__left-col {
         .image-box--inner {
             background-image: url('../images/develop-color-2.jpg');
-            .unskew;
         }
     }
-    .social-media-right-col {
+    .social-media-section__right-col {
         .image-box--inner {
             background-image: url('../images/OU-Exterior-Night_Header1300.jpg');
         }
     }
 }
 
-.vcenter {
-    display: inline-block;
-    vertical-align: middle;
-    float: none;
+.newsletter-section {
+    .container-fluid {
+        background: @tan;
+        color: @mid-grey;
+    }
+    .title {
+        font-size: 24px;
+        color: @mid-grey;
+    }
+    .subtitle {
+        font-size: 16px;
+        line-height: 24px;
+        color: @mid-grey;
+    }
+    .slanted-form {
+        margin-top: -50px;
+    }
+    .slanted-form--wrapper {
+        background: @blue;
+        .transform(skewX(-@angle) translateY(50%));
+        margin-left: 45px;
+        width: ~"calc(100% - 45px)"; //The pixel amount needs to match the margin-left prop
+        padding: 28px 106px 28px 119px;
+        .slanted-form__element {
+            display: inline-block;
+            padding: 10px;
+            input {
+                width: 100%;
+                .transform(skewx(@angle));
+                padding: 0;
+                background: transparent;
+                border: none;
+                line-height: 24px;
+                font-size: 14px;
+            }
+        }
+        .text-input--wrapper {
+            width: 80%;
+            background: white;
+            padding-left: 12px;
+        }
+        .submit--wrapper {
+            width: 20%;
+            background: @gold-line;
+            margin-left: -5px;
+            input {
+                color: white;
+            }
+        }
+    }
+}
+
+.footer {
+    text-align: center;
+    color: #606060;
+    font-size: 14px;
+    line-height: 18px;
+    padding-top: 96px;
+    padding-bottom: 50px;
+    a {
+        color: #606060;
+        text-decoration: underline;
+        &.social-link {
+            margin: 0 15px;
+            display: inline-block;
+            &:first-of-type {
+                margin-left: 0;
+            }
+            &:last-of-type {
+                margin-right: 0;
+            }
+            .vpv-icon {
+                width: 26.46px;
+                height: 26.62px;
+            }
+        }
+    }
+    .footer__affiliate-info,
+    a {
+        color: #989898;
+    }
+    .copyright,
+    a {
+        font-size: 12px;
+        color: #BABABA;
+    }
 }

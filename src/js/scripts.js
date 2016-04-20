@@ -10,6 +10,8 @@ $(document).ready(function() {
 $(window).resize(function() {
 	// Set the fullscreen element to have the same height as the window when the window is resized
 	$(".fullscreen").css("min-height", $(window).height());
+
+	//$(".text-box--inner").css("width", $(window).width() / 2);
 });
 
 // Initialize a function that makes an element parallax
