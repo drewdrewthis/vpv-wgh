@@ -224,12 +224,36 @@ section {
   display: none;
   pointer-events: none; }
   .menu-overlay ul {
-    list-style: none; }
+    list-style: none;
+    padding: 0;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    position: relative; }
     .menu-overlay ul li {
-      color: white; }
+      color: white;
+      background: transparent;
+      width: 75%;
+      margin: auto;
+      transition: background 0.2s, box-shadow 1s, width 1s; }
       .menu-overlay ul li .menu-item {
         color: white;
-        pointer-events: all; }
+        pointer-events: all;
+        text-transform: uppercase;
+        transition: all 0.2s;
+        margin: 0;
+        padding: 15px 0; }
+      .menu-overlay ul li:hover {
+        background: rgba(255, 255, 255, 0.8);
+        width: 100%; }
+        .menu-overlay ul li:hover .menu-item {
+          color: #C1A15D;
+          letter-spacing: 2px; }
+      .menu-overlay ul li a {
+        text-decoration: none; }
 
 .slanted-line {
   /* Line Copy 18: */
@@ -255,12 +279,13 @@ section {
   -webkit-box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.1);
-  z-index: 10;
+  z-index: 20;
   background: white;
   width: 100%;
   margin-bottom: 0;
   border-radius: 0;
-  height: 78px; }
+  height: 78px;
+  transition: all 0.3s; }
   .navbar .container {
     top: 50%;
     -webkit-transform: translateY(-50%);
@@ -322,13 +347,16 @@ section {
         top: -9px; }
       .navbar .navbar-toggle:hover .icon-bar:after {
         top: 9px; }
-    .navbar .navbar-toggle .clicked.icon-bar {
+  .navbar.clicked {
+    top: 0 !important;
+    position: fixed; }
+    .navbar.clicked .navbar-toggle .icon-bar {
       transition: all 0.3s;
       background: transparent; }
-      .navbar .navbar-toggle .clicked.icon-bar:before {
+      .navbar.clicked .navbar-toggle .icon-bar:before {
         transform: rotate(-45deg);
         top: 0; }
-      .navbar .navbar-toggle .clicked.icon-bar:after {
+      .navbar.clicked .navbar-toggle .icon-bar:after {
         transform: rotate(45deg);
         top: 0; }
 
@@ -360,6 +388,9 @@ section {
   width: 0;
   margin: auto;
   pointer-events: none; }
+  .blank-section.clicked {
+    min-height: 0 !important;
+    padding-top: 0; }
 
 .main-section h2 {
   margin: 0; }
@@ -519,7 +550,9 @@ section {
   background-image: url("../images/front-exterior.png");
   background-position: -340px center;
   background-size: contain;
-  background-repeat: no-repeat; }
+  background-repeat: no-repeat;
+  z-index: 2;
+  position: relative; }
   @media only screen and (min-width: 768px) {
     .welcome-section {
       background-position: -170px center; } }
@@ -552,7 +585,8 @@ section {
   height: 400px; }
 
 .new-development-section .new-development-section__container {
-  position: relative; }
+  position: relative;
+  z-index: 1; }
   .new-development-section .new-development-section__container .section-title {
     padding-top: 78px; }
   .new-development-section .new-development-section__container:before {
@@ -561,7 +595,7 @@ section {
     position: absolute;
     right: 0;
     width: 100%;
-    height: 1500px;
+    height: 720px;
     top: 25%; }
     @media only screen and (min-width: 992px) {
       .new-development-section .new-development-section__container:before {
@@ -637,10 +671,12 @@ section {
 .social-media-section .social-media-section__slanted-line-1 {
   left: 90px;
   top: -250px;
-  height: 300px; }
+  height: 300px;
+  z-index: 0; }
 
 .social-media-section .social-media-section__slanted-line-2 {
-  top: -250px; }
+  top: -250px;
+  z-index: 0; }
 
 .social-media-section .social-media-section__row {
   width: calc( 100% - 100px );
@@ -770,6 +806,8 @@ section {
     color: #606060; }
   .newsletter-section .container {
     position: relative; }
+    .newsletter-section .container .title-row {
+      padding-left: 35px; }
   .newsletter-section .newsletter-section__slanted-line-1 {
     top: 20px;
     left: -40px;

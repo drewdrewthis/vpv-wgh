@@ -22,8 +22,12 @@ $(document).ready(function() {
 	});
 
 	$('.navbar-toggle').on("click", function() {
-		$('.icon-bar').toggleClass('clicked');
-		$('.menu-overlay').toggle();
+		$('.menu-overlay').fadeToggle();
+		$('body').animate({
+			scrollTop: $('.navbar').offset().top
+		}, 'slow', 'swing', function(){
+			$('.navbar, .blank-section').toggleClass('clicked');
+		});
 	});
 
 });
