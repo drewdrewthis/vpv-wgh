@@ -191,23 +191,32 @@ body, p {
 container width on designs is ~1122px;
 
 */
-html, body {
+html,
+body {
   height: 100%;
   width: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
-  html.container-fluid, body.container-fluid {
+  html.container-fluid,
+  body.container-fluid {
     padding: 0 0 0 0; }
 
 body {
   overflow-x: hidden; }
 
-section {
+.wrap,
+main.main {
+  padding-left: 0;
+  padding-right: 0; }
+
+section,
+footer {
   background: white;
   position: relative;
   padding-top: 50px;
   padding-bottom: 50px; }
-  section.fullscreen {
+  section.fullscreen,
+  footer.fullscreen {
     margin: 0;
     width: 100%;
     background-size: cover;
@@ -223,9 +232,7 @@ section {
   text-align: center;
   display: none;
   pointer-events: none; }
-  .menu-overlay ul {
-    list-style: none;
-    padding: 0;
+  .menu-overlay .menu-main-menu-container {
     top: 50%;
     -webkit-transform: translateY(-50%);
     -moz-transform: translateY(-50%);
@@ -233,27 +240,28 @@ section {
     -o-transform: translateY(-50%);
     transform: translateY(-50%);
     position: relative; }
-    .menu-overlay ul li {
+  .menu-overlay ul {
+    list-style: none;
+    padding: 0; }
+    .menu-overlay ul .menu-item {
       color: white;
+      pointer-events: all;
+      text-transform: uppercase;
       background: transparent;
+      padding: 15px 0;
       width: 75%;
+      font-size: 60px;
       margin: auto;
       transition: background 0.2s, box-shadow 1s, width 1s; }
-      .menu-overlay ul li .menu-item {
+      .menu-overlay ul .menu-item a {
         color: white;
-        pointer-events: all;
-        text-transform: uppercase;
-        transition: all 0.2s;
-        margin: 0;
-        padding: 15px 0; }
-      .menu-overlay ul li:hover {
+        text-decoration: none; }
+      .menu-overlay ul .menu-item:hover {
         background: rgba(255, 255, 255, 0.8);
         width: 100%; }
-        .menu-overlay ul li:hover .menu-item {
+        .menu-overlay ul .menu-item:hover .menu-item {
           color: #C1A15D;
           letter-spacing: 2px; }
-      .menu-overlay ul li a {
-        text-decoration: none; }
 
 .slanted-line {
   /* Line Copy 18: */
@@ -309,7 +317,8 @@ section {
   .navbar .dropdown-toggle {
     font-size: 30px;
     float: right; }
-    .navbar .dropdown-toggle .glyphicon, .navbar .dropdown-toggle .vpv-icon {
+    .navbar .dropdown-toggle .glyphicon,
+    .navbar .dropdown-toggle .vpv-icon {
       vertical-align: middle;
       height: 25px;
       width: 41px; }
@@ -891,8 +900,10 @@ section {
       .footer a.social-link .vpv-icon {
         width: 26.46px;
         height: 26.62px; }
-  .footer .footer__affiliate-info, .footer a {
+  .footer .footer__affiliate-info,
+  .footer a {
     color: #989898; }
-  .footer .copyright, .footer a {
+  .footer .copyright,
+  .footer a {
     font-size: 12px;
     color: #BABABA; }

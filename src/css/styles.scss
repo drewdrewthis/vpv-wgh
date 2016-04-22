@@ -1,3 +1,4 @@
+@import '_variables';
 @import 'mixins';
 @import 'branding';
 @import 'icons';
@@ -8,7 +9,8 @@ container width on designs is ~1122px;
 
 */
 
-html, body {
+html,
+body {
     height: 100%;
     width: 100%;
     &.container-fluid {
@@ -26,7 +28,15 @@ body {
     //outline: 1px solid red;
 }
 
-section {
+.wrap,
+main.main,
+ {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+section,
+footer {
     background: white;
     position: relative;
     padding-top: 50px;
@@ -49,37 +59,33 @@ section {
     text-align: center;
     display: none;
     pointer-events: none;
+    .menu-main-menu-container {
+        @include vcenter;
+    }
     ul {
         list-style: none;
         padding: 0;
-        @include vcenter;
-        li {
+        .menu-item {
             color: white;
+            pointer-events: all;
+            text-transform: uppercase;
             background: transparent;
+            padding: 15px 0;
             width: 75%;
+            font-size: 60px;
             margin: auto;
             transition: background 0.2s, box-shadow 1s, width 1s;
-
-            
-            .menu-item {
+            a {
                 color: white;
-                pointer-events: all;
-                text-transform: uppercase;
-                transition: all 0.2s;
-                margin: 0;
-                padding: 15px 0;
-
+                text-decoration: none;
             }
             &:hover {
-                background: rgba(255,255,255,0.8);
+                background: rgba(255, 255, 255, 0.8);
                 width: 100%;
                 .menu-item {
                     color: $gold;
                     letter-spacing: 2px;
                 }
-            }
-            a {
-                text-decoration: none;
             }
         }
     }
@@ -136,7 +142,8 @@ section {
     .dropdown-toggle {
         font-size: 30px;
         float: right;
-        .glyphicon, .vpv-icon {
+        .glyphicon,
+        .vpv-icon {
             vertical-align: middle;
             height: 25px;
             width: 41px;
@@ -154,7 +161,8 @@ section {
             height: 4px;
             background: $blue;
             @include boxshadow(0px 2px 30px 0px rgba(0, 0, 0, 0.30));
-            &:before, &:after {
+            &:before,
+            &:after {
                 content: '';
                 display: block;
                 width: 24px;
@@ -182,7 +190,6 @@ section {
             }
         }
     }
-    
     &.clicked {
         top: 0!important;
         position: fixed;
@@ -202,7 +209,7 @@ section {
 }
 
 .intro-section {
-    background-image: url(../images/header-image.jpg);
+    background-image: url(#{$imagefolder}header-image.jpg);
     color: white;
     position: fixed;
     .lead-in {
@@ -235,7 +242,6 @@ section {
     width: 0;
     margin: auto;
     pointer-events: none;
-
     &.clicked {
         min-height: 0!important;
         padding-top: 0;
@@ -369,9 +375,9 @@ section {
     .slanted-image-1 {
         @extend .tiles-section__image-wrapper;
         .slanted-image-inner {
-            background-image: url('../images/People_and_culture_black_and_white.jpg');
+            background-image: url('#{$imagefolder}People_and_culture_black_and_white.jpg');
             &:hover {
-                background-image: url('../images/People_and_culture.jpg');
+                background-image: url('#{$imagefolder}People_and_culture.jpg');
                 //background-size: 150%;
             }
         }
@@ -383,9 +389,9 @@ section {
     .slanted-image-2 {
         @extend .tiles-section__image-wrapper;
         .slanted-image-inner {
-            background-image: url('../images/Development_black_and_white.jpg');
+            background-image: url('#{$imagefolder}Development_black_and_white.jpg');
             &:hover {
-                background-image: url('../images/Development.jpg');
+                background-image: url('#{$imagefolder}Development.jpg');
                 //background-size: 150%;
             }
         }
@@ -397,9 +403,9 @@ section {
     .slanted-image-3 {
         @extend .tiles-section__image-wrapper;
         .slanted-image-inner {
-            background-image: url('../images/Hotels_black_and_white.jpg');
+            background-image: url('#{$imagefolder}Hotels_black_and_white.jpg');
             &:hover {
-                background-image: url('../images/Hotels.jpg');
+                background-image: url('#{$imagefolder}Hotels.jpg');
                 //background-size: 150%;
             }
         }
@@ -411,9 +417,9 @@ section {
     .slanted-image-4 {
         @extend .tiles-section__image-wrapper;
         .slanted-image-inner {
-            background-image: url('../images/Manage_black_and_white.jpg');
+            background-image: url('#{$imagefolder}Manage_black_and_white.jpg');
             &:hover {
-                background-image: url('../images/Manage.jpg');
+                background-image: url('#{$imagefolder}Manage.jpg');
                 //background-size: 150%;
             }
         }
@@ -428,7 +434,7 @@ section {
 }
 
 .welcome-section {
-    background-image: url('../images/front-exterior.png');
+    background-image: url('#{$imagefolder}front-exterior.png');
     background-position: -340px center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -492,7 +498,7 @@ section {
     .new-development-section__main-content {
         @mixin arrow {
             content: "";
-            background: url('../images/arrow-right.svg');
+            background: url('#{$imagefolder}arrow-right.svg');
             position: absolute;
             height: 9px;
             width: 45px;
@@ -541,7 +547,7 @@ section {
     }
     .new-development-section__image-gallery {
         .image-gallery__image-wrapper--inner {
-            background-image: url('../images/new-developments-image-1.jpg');
+            background-image: url('#{$imagefolder}new-developments-image-1.jpg');
             background-size: cover;
             background-position: top center;
             width: 100%;
@@ -616,7 +622,7 @@ section {
             }
         }
         .image-box--overlay {
-            background-image: url('../images/gradient-image.png');
+            background-image: url('#{$imagefolder}gradient-image.png');
             background-size: cover;
             width: 100%;
             height: 100%;
@@ -671,12 +677,12 @@ section {
     }
     .social-media-section__left-col {
         .image-box--inner {
-            background-image: url('../images/Development.jpg');
+            background-image: url('#{$imagefolder}Development.jpg');
         }
     }
     .social-media-section__right-col {
         .image-box--inner {
-            background-image: url('../images/OU-Exterior-Night_Header1300.jpg');
+            background-image: url('#{$imagefolder}OU-Exterior-Night_Header1300.jpg');
         }
     }
 }
@@ -787,10 +793,12 @@ section {
             }
         }
     }
-    .footer__affiliate-info, a {
+    .footer__affiliate-info,
+    a {
         color: #989898;
     }
-    .copyright, a {
+    .copyright,
+    a {
         font-size: 12px;
         color: #BABABA;
     }

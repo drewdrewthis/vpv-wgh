@@ -6,31 +6,31 @@
 }
 
 .twitter-icon {
-    background: url('../images/twitter.svg');
+    background: url('#{$imagefolder}twitter.svg');
     @include icon-attr;
 }
 
 .twitter-big-icon {
-    background: url('../images/twitter-big.svg');
+    background: url('#{$imagefolder}twitter-big.svg');
     @include icon-attr;
 }
 
 .linkedin-icon {
-    background: url('../images/linkedin.svg');
+    background: url('#{$imagefolder}linkedin.svg');
     @include icon-attr;
 }
 
 .linkedin-big-icon {
-    background: url('../images/linkedin-big.svg');
+    background: url('#{$imagefolder}linkedin-big.svg');
     @include icon-attr;
 }
 
 .facebook-big-icon {
-    background: url('../images/facebook-big.svg');
+    background: url('#{$imagefolder}facebook-big.svg');
     @include icon-attr;
 }
 
 .hamburger-icon {
-    background: url('../images/hamburger.svg');
+    background: url('#{$imagefolder}hamburger.svg');
     @include icon-attr;
 }
