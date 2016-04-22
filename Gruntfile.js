@@ -5,12 +5,12 @@ module.exports = function(grunt) {
         htmlbuild: {
             landing_page_template: {
                 files: {
-                    '/Users/Bongani/Google\ Drive/WORK/Web+Design/Verbal+Visual/WGH/wgh-wp-engine/wp-content/themes/vpv-sage/templates/landing-page.php': ['src/index.html']
+                    'src/templates/landing-page.php': ['src/index.html']
                 }
             }
         },
         sync: {
-            main: {
+            styles: {
                 files: [
                     {
                         cwd: '/Users/Bongani/Google\ Drive/WORK/Web+Design/Verbal+Visual/WGH/wghhotelgroup.com/src/css/', 
@@ -21,10 +21,24 @@ module.exports = function(grunt) {
                 verbose: true, // Default: false 
                 pretend: false, // Don't do any disk operations - just write log. Default: false 
                 failOnError: true, // Fail the task when copying is not possible. Default: false 
-                ignoreInDest: ["_variables.scss", ".DS_Store"], // Never remove js files from destination. Default: none 
+                ignoreInDest: ["_variables.scss", ".DS_Store", "main.scss"], // Never remove js files from destination. Default: none 
                 updateAndDelete: true, // Remove all files from dest that are not found in src. Default: false 
                 compareUsing: "md5" // compares via md5 hash of file contents, instead of file modification time. Default: "mtime" 
-
+            },
+            templates: {
+                files: [
+                    {
+                        cwd: '/Users/Bongani/Google\ Drive/WORK/Web+Design/Verbal+Visual/WGH/wghhotelgroup.com/src/templates/*.php', 
+                        src: ['**/*.php'], 
+                        dest: '/Users/Bongani/Google\ Drive/WORK/Web+Design/Verbal+Visual/WGH/wgh-wp-engine/wp-content/themes/vpv-sage/templates/'
+                    } // includes files in path and its subdirs 
+                ],
+                verbose: true, // Default: false 
+                pretend: true, // Don't do any disk operations - just write log. Default: false 
+                failOnError: true, // Fail the task when copying is not possible. Default: false 
+                ignoreInDest: [".DS_Store"], // Never remove js files from destination. Default: none 
+                updateAndDelete: true, // Remove all files from dest that are not found in src. Default: false 
+                compareUsing: "md5" // compares via md5 hash of file contents, instead of file modification time. Default: "mtime" 
             }
         },
         jshint: {
@@ -59,7 +73,7 @@ module.exports = function(grunt) {
                     sourceMap: false
                 },
                 files: {
-                    'src/css/styles.css': 'src/css/_global.scss'
+                    'src/css/styles.css': 'src/css/main.scss'
                 }
             }
         },
@@ -102,7 +116,7 @@ module.exports = function(grunt) {
         }
     });
 
-    grunt.registerTask('default', ['htmlbuild', 'jshint', 'sass', 'sync']);
+    grunt.registerTask('default', ['htmlbuild', 'jshint', 'sass']);
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-less');

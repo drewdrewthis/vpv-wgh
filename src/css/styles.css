@@ -11,7 +11,7 @@
 
 @font-face {
   font-family: 'Walsheim';
-  src: url("../fonts/gt-walsheim-bold.ttf") format("truetype");
+  src: url("../fonts/gt-walsheim-bold-web.ttf") format("truetype");
   font-weight: bold, 800;
   font-style: normal; }
 
@@ -207,7 +207,10 @@ body {
 .wrap,
 main.main {
   padding-left: 0;
-  padding-right: 0; }
+  padding-right: 0;
+  width: 100%;
+  background: white;
+  overflow: hidden; }
 
 section,
 footer {
@@ -302,6 +305,14 @@ footer {
     -o-transform: translateY(-50%);
     transform: translateY(-50%);
     position: relative; }
+  .navbar img {
+    width: 100%; }
+  .navbar .navbar__col {
+    padding-top: 0;
+    padding-bottom: 0; }
+    .navbar .navbar__col .navbar-brand {
+      padding: 0;
+      height: auto; }
   .navbar .navbar-toggle__col {
     transform: translateY(40%);
     height: 100%;
@@ -309,9 +320,6 @@ footer {
   .navbar.topfix {
     position: fixed;
     top: 0; }
-  .navbar .navbar-brand {
-    padding: 0;
-    height: auto; }
   .navbar .nav-text {
     text-align: center; }
   .navbar .dropdown-toggle {

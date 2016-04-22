@@ -33,6 +33,10 @@ main.main,
  {
     padding-left: 0;
     padding-right: 0;
+    width: 100%;
+    background: white;
+    overflow: hidden;
+    
 }
 
 section,
@@ -123,6 +127,17 @@ footer {
     .container {
         @include vcenter;
     }
+    img {
+        width: 100%;
+    }
+    .navbar__col {
+        padding-top: 0;
+        padding-bottom: 0;
+        .navbar-brand {
+            padding: 0;
+            height: auto;
+        }
+    }
     .navbar-toggle__col {
         transform: translateY(40%); //Vertical align hack
         height: 100%;
@@ -132,10 +147,7 @@ footer {
         position: fixed;
         top: 0;
     }
-    .navbar-brand {
-        padding: 0;
-        height: auto;
-    }
+    
     .nav-text {
         text-align: center;
     }
