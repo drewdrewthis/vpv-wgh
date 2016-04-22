@@ -1,3 +1,4 @@
+
     <?php /* Template Name: Landing Page */ ?>
     <section id="section-2" class="row main-section tiles-section">
         <div class="container labels-container">
@@ -266,41 +267,3 @@
             </div>
         </div>
     </section>
-    <section class="footer row">
-        <div class="container">
-            <div class="row footer__social-media-icons">
-                <div class="col-xs-12">
-                    <a href="#" rel="" target="_blank" class="social-link"><i class="linkedin-big-icon vpv-icon"></i></a>
-                    <a href="#" rel="" target="_blank" class="social-link"><i class="twitter-big-icon vpv-icon"></i></a>
-                    <a href="#" rel="" target="_blank" class="social-link"><i class="facebook-big-icon vpv-icon"></i></a>
-                </div>
-            </div>
-            <div class="row footer__contact-info">
-                <div class="col-xs-12">
-                    <span class="footer__address">4243 Hunt Road, Cincinnati, Ohio 45242</span>
-                    <span class="footer__phone">Phone  (513) 891 1066</span>
-                </div>
-            </div>
-            <div class="row footer__affiliate-info">
-                <div class="col-xs-12">
-                    <span class="footer__affiliate">An Affiliate of the <a href="#" rel="" target="_blank">Pyramid Hotel Group</a></span>
-                </div>
-            </div>
-            <div class="row footer__copyright">
-                <div class="col-xs-12">
-                    <span class="copyright">&copy; 2016 Winegardner &amp; 
-                Hammons Hotel Group. <a href="#" rel="" target="_blank">Terms &amp; Privacy</a></span>
-                </div>
-            </div>
-        </div>
-    </section>
-    <script src="js/assets/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="js/assets/jquery.lazyload.js" type="text/javascript" charset="utf-8"></script>
-    <script src="js/assets/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="//cdn.jsdelivr.net/lining.js/0.3.2/lining.min.js"></script>
-    <script src="js/scripts.min.js"></script>
-</body>
-<footer>
-</footer>
-
-</html>

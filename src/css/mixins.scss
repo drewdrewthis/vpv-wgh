@@ -28,7 +28,6 @@ $angle: 25deg;
 $skew: skewX(-$angle);
 $unskew: skewX($angle);
 
-
 /*==========  Mobile First Method Media Query Mixins ==========*/
 
 $xs: "only screen and (min-width : 480px)";

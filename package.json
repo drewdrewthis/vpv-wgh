@@ -16,8 +16,8 @@
     "grunt-contrib-less": "latest",
     "grunt-contrib-uglify": "latest",
     "grunt-contrib-watch": "latest",
+    "grunt-html-build": "^0.5.3",
     "grunt-newer": "^1.2.0",
-    "grunt-processhtml": "^0.3.13",
     "grunt-sass": "^1.1.0",
     "jshint-stylish": "latest"
   },

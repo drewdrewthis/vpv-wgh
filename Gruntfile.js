@@ -2,21 +2,36 @@ module.exports = function(grunt) {
     grunt.initConfig({
 
         pkg: grunt.file.readJSON('package.json'),
-        processhtml: {
-            options: {
-                strip: true
-            },
+        htmlbuild: {
             landing_page_template: {
                 files: {
-                    'templates/landing-page.php': ['src/index.html']
+                    '/Users/Bongani/Google\ Drive/WORK/Web+Design/Verbal+Visual/WGH/wgh-wp-engine/wp-content/themes/vpv-sage/templates/landing-page.php': ['src/index.html']
                 }
+            }
+        },
+        sync: {
+            main: {
+                files: [
+                    {
+                        cwd: '/Users/Bongani/Google\ Drive/WORK/Web+Design/Verbal+Visual/WGH/wghhotelgroup.com/src/css/', 
+                        src: ['**/*.scss','!_variables.scss'], 
+                        dest: '/Users/Bongani/Google\ Drive/WORK/Web+Design/Verbal+Visual/WGH/wgh-wp-engine/wp-content/themes/vpv-sage/assets/styles/common/'
+                    } // includes files in path and its subdirs 
+                ],
+                verbose: true, // Default: false 
+                pretend: false, // Don't do any disk operations - just write log. Default: false 
+                failOnError: true, // Fail the task when copying is not possible. Default: false 
+                ignoreInDest: ["_variables.scss", ".DS_Store"], // Never remove js files from destination. Default: none 
+                updateAndDelete: true, // Remove all files from dest that are not found in src. Default: false 
+                compareUsing: "md5" // compares via md5 hash of file contents, instead of file modification time. Default: "mtime" 
+
             }
         },
         jshint: {
             options: {
                 //asi: true,
                 reporter: require('jshint-stylish'),
-                ignores: ['src/js/assets/*.js']
+                ignores: ['src/js/assets/**/*.js']
             },
             build: ['Gruntfile.js', 'src/**/*.js']
         },
@@ -44,7 +59,7 @@ module.exports = function(grunt) {
                     sourceMap: false
                 },
                 files: {
-                    'src/css/styles.css': 'src/css/styles.scss'
+                    'src/css/styles.css': 'src/css/_global.scss'
                 }
             }
         },
@@ -87,14 +102,15 @@ module.exports = function(grunt) {
         }
     });
 
-    grunt.registerTask('default', ['processhtml', 'jshint', 'sass']);
+    grunt.registerTask('default', ['htmlbuild', 'jshint', 'sass', 'sync']);
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
-    grunt.loadNpmTasks('grunt-processhtml');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-newer');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-sass');
+    grunt.loadNpmTasks('grunt-html-build');
+    grunt.loadNpmTasks('grunt-sync');
 };
