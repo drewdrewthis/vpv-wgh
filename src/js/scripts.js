@@ -2,7 +2,13 @@ var slanted_lines = [];
 
 $(document).ready(function() {
 	// Loads the lazy script
-    $(".lazy").lazyload();
+    //$(".lazy").lazyload();
+
+    // Loads the BX Slider script
+    $('.bxslider').bxSlider({
+    	controls: false,
+    	pagerSelector: $('.image-gallery__pagination')
+    });
 
     window_init();
 

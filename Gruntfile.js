@@ -2,19 +2,48 @@ module.exports = function(grunt) {
     grunt.initConfig({
 
         pkg: grunt.file.readJSON('package.json'),
-        htmlbuild: {
-            landing_page_template: {
+        htmlmin: {
+            dist: {
+                options: {
+                    removeComments: true,
+                    collapseWhitespace: true
+                },
                 files: {
-                    'src/templates/landing-page.php': ['src/index.html']
+                    'src/index.html': 'src/dev-index.html'
+                }
+            }
+        },
+        htmlbuild: {
+            options: {
+                sections: {
+                    views: '',
+                    templates: '',
+                    layout: {
+                        header: 'src/dev-pages/templates/header.html',
+                        footer: 'src/dev-pages/templates/footer.html',
+                        homepage: 'src/dev-pages/templates/homepage.html',
+                        properties: 'src/dev-pages/templates/properties.html'
+
+                    }
+                }
+            },
+            dev: {
+                files: {
+                    'src/index.html': ['src/dev-pages/index.html'],
+                    'src/properties.html': ['src/dev-pages/properties.html'],
+                }
+            },
+            wp: {
+                files: {
+                    'src/wp-templates/landing-page.php': ['src/dev-pages/homepage.html']
                 }
             }
         },
         sync: {
             styles: {
-                files: [
-                    {
-                        cwd: '/Users/Bongani/Google\ Drive/WORK/Web+Design/Verbal+Visual/WGH/wghhotelgroup.com/src/css/', 
-                        src: ['**/*.scss','!_variables.scss'], 
+                files: [{
+                        cwd: '/Users/Bongani/Google\ Drive/WORK/Web+Design/Verbal+Visual/WGH/wghhotelgroup.com/src/css/',
+                        src: ['**/*.scss', '!_variables.scss'],
                         dest: '/Users/Bongani/Google\ Drive/WORK/Web+Design/Verbal+Visual/WGH/wgh-wp-engine/wp-content/themes/vpv-sage/assets/styles/common/'
                     } // includes files in path and its subdirs 
                 ],
@@ -26,17 +55,16 @@ module.exports = function(grunt) {
                 compareUsing: "md5" // compares via md5 hash of file contents, instead of file modification time. Default: "mtime" 
             },
             templates: {
-                files: [
-                    {
-                        cwd: '/Users/Bongani/Google\ Drive/WORK/Web+Design/Verbal+Visual/WGH/wghhotelgroup.com/src/templates/*.php', 
-                        src: ['**/*.php'], 
+                files: [{
+                        cwd: '/Users/Bongani/Google\ Drive/WORK/Web+Design/Verbal+Visual/WGH/wghhotelgroup.com/src/templates/*.php',
+                        src: ['**/*.php'],
                         dest: '/Users/Bongani/Google\ Drive/WORK/Web+Design/Verbal+Visual/WGH/wgh-wp-engine/wp-content/themes/vpv-sage/templates/'
                     } // includes files in path and its subdirs 
                 ],
                 verbose: true, // Default: false 
                 pretend: true, // Don't do any disk operations - just write log. Default: false 
                 failOnError: true, // Fail the task when copying is not possible. Default: false 
-                ignoreInDest: [".DS_Store"], // Never remove js files from destination. Default: none 
+                ignoreInDest: [".DS_Store"],
                 updateAndDelete: true, // Remove all files from dest that are not found in src. Default: false 
                 compareUsing: "md5" // compares via md5 hash of file contents, instead of file modification time. Default: "mtime" 
             }
@@ -102,8 +130,8 @@ module.exports = function(grunt) {
         },
         watch: {
             index: {
-                files: ['src/index.html'],
-                tasks: ['processhtml']
+                files: ['src/dev-pages/**/*.html'],
+                tasks: ['htmlbuild']
             },
             stylesheets: {
                 files: ['src/**/*.scss'],
@@ -127,4 +155,5 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-html-build');
     grunt.loadNpmTasks('grunt-sync');
+    grunt.loadNpmTasks('grunt-contrib-htmlmin');
 };

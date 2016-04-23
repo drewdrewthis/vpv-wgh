@@ -1,0 +1,44 @@
+// Mixins
+@mixin boxshadow ($input) {
+    -webkit-box-shadow: $input;
+    -moz-box-shadow: $input;
+    box-shadow: $input;
+}
+
+@mixin transform($content) {
+    -webkit-transform: $content;
+    -moz-transform: $content;
+    -ms-transform: $content;
+    -o-transform: $content;
+    transform: $content;
+}
+
+@mixin vcenter {
+    top: 50%;
+    @include transform(translateY(-50%));
+    position: relative;
+}
+
+.vpv-icon {
+    height: 34px;
+    width: 34px;
+}
+
+$angle: 25deg;
+$skew: skewX(-$angle);
+$unskew: skewX($angle);
+$nav-height: 78px;
+
+/*==========  Mobile First Method Media Query Mixins ==========*/
+
+$mobile-only: "only screen and (max-width : 768px)";
+
+$xs: "only screen and (min-width : 480px)";
+
+$sm: "only screen and (min-width : 768px)";
+
+$md: "only screen and (min-width : 992px)";
+
+$lg: "only screen and (min-width : 1200px)";
+
+// Mixins End`
