@@ -24,6 +24,11 @@
     width: 34px;
 }
 
+.no-gutter > [class*='col-'] {
+    padding-right:0;
+    padding-left:0;
+}
+
 $angle: 25deg;
 $skew: skewX(-$angle);
 $unskew: skewX($angle);
