@@ -35,7 +35,7 @@ module.exports = function(grunt) {
             },
             wp: {
                 files: {
-                    'src/wp-templates/landing-page.php': ['src/dev-pages/homepage.html']
+                    'src/wp-templates/landing-page.php': ['src/dev-pages/templates/homepage.html']
                 }
             }
         },
@@ -43,7 +43,7 @@ module.exports = function(grunt) {
             styles: {
                 files: [{
                         cwd: '/Users/Bongani/Google\ Drive/WORK/Web+Design/Verbal+Visual/WGH/wghhotelgroup.com/src/css/',
-                        src: ['**/*.scss', '!_variables.scss'],
+                        src: ['**/*.scss', '!_variables.scss','!main.scss'],
                         dest: '/Users/Bongani/Google\ Drive/WORK/Web+Design/Verbal+Visual/WGH/wgh-wp-engine/wp-content/themes/vpv-sage/assets/styles/common/'
                     } // includes files in path and its subdirs 
                 ],
@@ -56,16 +56,16 @@ module.exports = function(grunt) {
             },
             templates: {
                 files: [{
-                        cwd: '/Users/Bongani/Google\ Drive/WORK/Web+Design/Verbal+Visual/WGH/wghhotelgroup.com/src/templates/*.php',
+                        cwd: '/Users/Bongani/Google\ Drive/WORK/Web+Design/Verbal+Visual/WGH/wghhotelgroup.com/src/wp-templates/',
                         src: ['**/*.php'],
                         dest: '/Users/Bongani/Google\ Drive/WORK/Web+Design/Verbal+Visual/WGH/wgh-wp-engine/wp-content/themes/vpv-sage/templates/'
                     } // includes files in path and its subdirs 
                 ],
                 verbose: true, // Default: false 
-                pretend: true, // Don't do any disk operations - just write log. Default: false 
+                pretend: false, // Don't do any disk operations - just write log. Default: false 
                 failOnError: true, // Fail the task when copying is not possible. Default: false 
                 ignoreInDest: [".DS_Store"],
-                updateAndDelete: true, // Remove all files from dest that are not found in src. Default: false 
+                updateAndDelete: false, // Remove all files from dest that are not found in src. Default: false 
                 compareUsing: "md5" // compares via md5 hash of file contents, instead of file modification time. Default: "mtime" 
             }
         },
